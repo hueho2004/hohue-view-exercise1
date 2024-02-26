@@ -1,0 +1,5 @@
+{
+    "require": {
+        "calebporzio/sushi": "^2.5"
+    }
+}

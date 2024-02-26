@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Fruit;
+use App\Http\Controllers\FruitController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
    global $users;
    return $users;
 });
@@ -22,3 +23,14 @@ Route::get('/users', function () {
    global $response;
    return $response;
 });
+*/
+Route::get('/myview/{user}', function ($user) {
+   return view('home', ['username' => $user]);
+   });
+
+   Route::get('/fruits', function() {
+   return Fruit::all();
+   });
+
+Route::get('/showFruits', [FruitController::class, 'getFruits']);
+Route::get('/showAllFruits', [FruitController::class, 'getAllFruits']);
