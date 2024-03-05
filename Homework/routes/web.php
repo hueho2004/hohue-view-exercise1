@@ -5,6 +5,7 @@ use App\Models\Fruit;
 use App\Http\Controllers\FruitController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\FileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,7 +68,17 @@ Route::get('/', function (){
    return view('form');
 
 });*/
-Route::get('/', function () {
+/*Route::get('/', function () {
    return view('register');
 });
-Route::post('/post', [UsersController::class, 'Post']);
+Route::post('/post', [UsersController::class, 'Post']);*/
+Route::post('/post', [FormController::class, 'post']);
+Route::get('/', function (){
+   return view('forms');
+
+});
+Route::get('/upload', function () {
+   return view('file');
+});
+
+Route::post('/upload', [FileController::class, 'upload']);

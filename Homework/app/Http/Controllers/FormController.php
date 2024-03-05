@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 class FormController extends Controller
 {
     public function post(Request $request){
-        dd($request->input('username'), $request->input('password'));
+       return back()->withInput($request->only('username'));
+        /*$password = $request->input('password') ?? 'hue123';
+        dd($request->input('username'), $password);*/
     }
 }
