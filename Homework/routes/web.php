@@ -6,6 +6,7 @@ use App\Http\Controllers\FruitController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\PagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,12 +22,12 @@ use App\Http\Controllers\FileController;
    global $users;
    return $users;
 });
-
+*/
 Route::get('/users', function () {
    global $response;
    return $response;
 });
-*/
+
 /*Route::get('/myview/{user}', function ($user) {
    return view('home', ['username' => $user]);
    });
@@ -82,3 +83,13 @@ Route::get('/upload', function () {
 });
 
 Route::post('/upload', [FileController::class, 'upload']);
+Route::get('/dashboard', function () {
+   return view('dashboard');
+});
+Route::get('/test', function () {
+   return view('test', ['name' => 'hue']);
+});
+Route::get('/about', [PagesController::class, 'aboutme']);
+Route::get('/task', function () {
+   return view('tasks');
+});
